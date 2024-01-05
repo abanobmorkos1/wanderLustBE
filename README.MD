@@ -61,7 +61,7 @@ To run the Wanderlust application locally, follow these steps:
     },
     // ... other diaries
   ]
-
+```
 
 
 
@@ -82,6 +82,7 @@ To run the Wanderlust application locally, follow these steps:
       "pin": 1234
     },
   ]
+```
 
 ### POST `/diaries`
 
