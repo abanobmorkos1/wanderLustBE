@@ -91,16 +91,17 @@ app.put("/diaries/:id", async (req , res) => {
 })
 
 app.delete("/diaries/:id" , async (req , res) => {
-    // const pin = req.body
-    // const correctPin = await Travel.findOne({pin});
-    // if(correctPin){
-        try {
-            res.json(
-                await Travel.findByIdAndDelete(req.params.id))
-        } catch (Error) {
-            res.status(400).json(Error)
+    try {
+        const {pin , name} = req.body
+        const matchinDiary = await Travel.find({pin , name})
+        if (matchinDiary) {
+            return res.status(400).json({ error: `WRONG PIN` });
         }
-    // }
+        const result = await Travel.findOneAndDelete(req.params.id);
+        res.json(result);
+    } catch (error) {
+        res.status(400).json(error)
+    }
 })
 
 app.listen(Port, () => console.log(`listening on port ${Port}`) )
