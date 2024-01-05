@@ -99,7 +99,7 @@ To run the Wanderlust application locally, follow these steps:
     "pin": 5678
     }
   ]
-
+```
 **Example Response:**
 ```json
 [
