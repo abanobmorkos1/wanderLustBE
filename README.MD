@@ -2,6 +2,29 @@
 
 Wanderlust is a web application designed to help users capture and share their travel experiences. Whether it's a weekend getaway or an adventurous journey, Wanderlust allows users to create diaries, add descriptions, and attach images to document their memorable moments.
 
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Dependencies](#install-dependencies)
+  - [Create .env File](#create-env-file)
+  - [Run the Application](#run-the-application)
+  - [Open in Browser](#open-in-browser)
+- [Routes](#routes)
+  - [GET `/diaries`](#get-diaries)
+  - [GET `/diaries/:id`](#get-diariesid)
+  - [POST `/diaries`](#post-diaries)
+  - [PUT `/diaries/:id`](#put-diariesid)
+  - [DELETE `/diaries/:id`](#delete-diariesid)
+- [Pin Code Security](#pin-code-security)
+  - [How It Works](#how-it-works)
+    - [Creating a New Diary Entry](#creating-a-new-diary-entry)
+    - [Securing Diary Entry with Pin](#securing-diary-entry-with-pin)
+    - [Deleting a Diary Entry](#deleting-a-diary-entry)
+    - [Authentication with Pin](#authentication-with-pin)
+  - [User Benefits](#user-benefits)
+  - [Important Note](#important-note)
+
+
 ## Technologies Used
 
 - Node.js
@@ -61,7 +84,8 @@ To run the Wanderlust application locally, follow these steps:
     },
     // ... other diaries
   ]
-```
+  ```
+
 
 
 
@@ -83,12 +107,12 @@ To run the Wanderlust application locally, follow these steps:
     },
   ]
 ```
-
 ### POST `/diaries`
 
 - **Description:** Create a new diary.
 
  **Request Body:**
+
   ```json
   [
     {
@@ -101,6 +125,7 @@ To run the Wanderlust application locally, follow these steps:
   ]
 ```
 **Example Response:**
+
 ```json
 [
     {
