@@ -4,7 +4,7 @@ const app = express ()
 const morgan = require('morgan')
 const mongoose= require('mongoose')
 const {Port , DATABASE_URL}  = process.env
-
+const cors = require('cors')
 const travelSchema = new mongoose.Schema({
     name : { type: String, unique: true },
     description : String,
@@ -17,12 +17,13 @@ const Travel = mongoose.model('Travel' , travelSchema)
 
 mongoose.connect(DATABASE_URL)
 mongoose.connection
-    .on("open" ,() => console.log('Connected to db'))
-    .on("Close" ,() => console.log('Disonnected from db'))
-    .on("Error" ,(Error) => console.log('Error connecting to db'))
+.on("open" ,() => console.log('Connected to db'))
+.on("Close" ,() => console.log('Disonnected from db'))
+.on("Error" ,(Error) => console.log('Error connecting to db'))
 
 app.use(morgan("dev"))
 app.use(express.json())
+app.use(cors())
 
 app.get('/diaries/:id' , async (req , res) => {
     const diaryId = req.params.id;
